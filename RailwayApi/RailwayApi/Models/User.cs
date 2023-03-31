@@ -19,7 +19,7 @@ namespace RailwayApi.Models
         public string Password { get; set; }
 
         public DateTime RegistrationDate { get; set; }
-        //public string Role { get; set; }
+       
 
         #endregion
     }

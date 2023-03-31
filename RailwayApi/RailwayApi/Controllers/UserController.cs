@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using RailwayApi.Models;
 using RailwayApi.Models.DAL;
 using System.Net.Mail;
 using System.Net;
-using MimeKit;
-using System.Text;
+
 
 namespace RailwayApi.Controllers
 {
@@ -64,9 +62,7 @@ namespace RailwayApi.Controllers
            
 
             _userObj.InsertModel(user);
-         /*   user.Password = Convert.ToBase64String(
-           System.Security.Cryptography.SHA256.Create()
-           .ComputeHash(Encoding.UTF8.GetBytes(user.Password)));*/
+        
 
             _userObj.Save();
 

@@ -74,6 +74,7 @@ namespace RailwayApi.Controllers
         {
 
             _context.Reservations.Add(reservation);
+
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetReservation", new { id = reservation.Res_Id }, reservation);
