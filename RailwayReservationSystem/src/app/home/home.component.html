@@ -1,0 +1,39 @@
+
+ <div  >
+    <div class="col-md-8" style="margin-left: 130px; margin-top: 40px;">
+
+        <div class="search">
+          <i class="fa fa-search"></i>
+          <input type="text" class="form-control"  [(ngModel)]="searchText"
+          placeholder="Search Train">
+          <button class="btn btn-primary">Search</button>
+        </div>
+        
+      </div>
+<table class="table container" style="margin-top: 50px;">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Train Name</th>
+            <th scope="col">Departure</th>
+            <th scope="col">Destination</th>
+            <th scope="col">Fare</th>
+            <th scope="col">Arrival Time</th>
+            <th scope="col">Departure Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let t of traindetail |  filter: searchText">
+            <td>{{t.trainName}}</td>
+            <td>{{t.sourceStation}}</td>
+            <td>{{t.destinationStation}}</td>
+            <td>{{t.fare}}</td>
+            <td>{{t.arrivalTime}}</td>
+            <td>{{t.departureTime}}</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+</div>
+

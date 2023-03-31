@@ -1,0 +1,179 @@
+
+<section class="background-radial-gradient overflow-hidden" style="background-color:aliceblue ">
+    
+   
+  <div class="container px- py-5 px-md-5 text-center text-lg-start my-5" >
+      <div class="row gx-lg-5 align-items-center mb-5">
+          
+          <div class="container col-lg-6 mb-5 mb-lg-0 border-radius: 20% position-relative">
+             
+              <div class=" card bg-glass">
+                  <div class="card-body px-md-4">
+                      <form [formGroup]="reservationForm" (ngSubmit)="handleSubmit()">
+                          <div>
+
+                          </div>
+                          <p class="text-center fs-3"></p>
+
+                          <h3 class="text-center fw-bold">Railway Reservation Form</h3>
+
+                          <br>
+                          <div class="row">
+                              <div class="col-md-6 mb-4">
+                                  <label class="form-label" for="Res_Name"><h6>Passenger Name</h6></label>
+
+                                  <div class="form-outline">
+                                      <input type="text" formControlName="Res_Name"
+                                          [class.is-invalid]="f['Res_Name'].invalid && f['Res_Name'].touched"
+                                          class="form-control form-control-lg" />
+
+                                     
+                                  </div>
+
+                                  <input type="hidden" formControlName="User_Id" value={{userid}}/>
+                                   <input type="hidden" formControlName="Train_Id" value="1" />
+
+                                  <div class="form-text text-danger"
+                                      *ngIf="f['Res_Name'].invalid && f['Res_Name'].touched">
+                                      <div *ngIf="f['Res_Name'].errors && f['Res_Name'].errors['required']">
+                                          Name Is Required
+                                      </div>
+                                      <div *ngIf="f['Res_Name'].errors && f['Res_Name'].errors['minlength']">
+                                          Minimum 3 Characters Required
+                                      </div>
+                                      <div *ngIf="f['Res_Name'].errors && f['Res_Name'].errors['maxlength']">
+                                          20 Characters Maximum
+                                      </div>
+                                  </div>
+
+                              </div>
+
+                              <div class="col-md-6 mb-4">
+
+                                  <h6 class="mb-2 pb-1">Gender: </h6>
+
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input" formControlName="Res_Gender" type="radio"
+                                          value="Female" checked />
+                                      <label class="form-check-label" for="femaleGender">Female</label>
+                                  </div>
+
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input" formControlName="Res_Gender" type="radio"
+                                          value="Male" />
+                                      <label class="form-check-label" for="maleGender">Male</label>
+                                  </div>
+
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input" formControlName="gender" type="radio"
+                                          value="Others" />
+                                      <label class="form-check-label" for="otherGender">Other</label>
+                                  </div>
+
+                              </div>
+                              <br>
+                          
+                          </div>
+                          
+
+
+                          <div class="row">
+
+
+                              <div class="col-md-6 mb-4">
+
+                                  <h6 class="mb-2 pb-1">Quota: </h6>
+
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input" formControlName="QuotaType" type="radio"
+                                          value="GeneralQuota" checked />
+                                      <label class="form-check-label" for="GeneralQuota">General</label>
+                                  </div>
+
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input" formControlName="QuotaType" type="radio"
+                                          value="LadiesQuota" />
+                                      <label class="form-check-label" for="LadiesQuota">Ladies</label>
+                                  </div>
+
+                                
+                              </div>
+
+                              <div class="col-md-6">
+                                  <label for="date" class="label float-left"><h6>Date Of Journey</h6></label>
+                                  <br>
+                                  
+                                  <input type="date" class="form-control" formControlName="Res_Date"
+                               >
+                              </div>
+                             
+                          
+                          </div>
+                          <br>
+                          
+                       
+                          <div class="row">
+                              <div class="col-md-6 mb-4">
+
+                                  <div class="form-outline">
+
+                                      <select class="form-select form-select" aria-label=".form-select-lg example">
+                                          <option value="">Select Source Station</option>
+                                          <option *ngFor="let t of traindetail" value="{{t.sourceStation}}">
+                                              {{t.sourceStation}}
+                                          </option>
+                                      </select>
+
+
+                                  </div>
+
+
+
+
+                              </div>
+
+                              <div class="col-md-6 mb-4">
+
+                                  <select class="form-select form-select" aria-label=".form-select-lg example">
+                                      <option value="">Select Destination Station</option>
+                                      <option *ngFor="let t of traindetail" value="{{t.destinationStation}}">
+                                          {{t.destinationStation}}
+                                      </option>
+                                  </select>
+
+
+                              </div>
+                              
+                          
+                             
+                          </div>
+                          <br>
+                          
+                          <div class="col-lg-6 offset-3">
+                              <div class="d-grid">
+                                  <input type="submit"  value="Submit" [class.disabled]="reservationForm.invalid"
+                                     (click)="Pay()" class="btn btn-primary">
+                              </div>
+
+                             
+                          </div>
+                          <br>
+
+
+
+
+
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+
+
+
+
+

@@ -1,0 +1,158 @@
+<section class="background-radial-gradient overflow-hidden">
+  <style>
+    .background-radial-gradient {
+      background-color: hsl(218, 41%, 15%);
+      background-image: radial-gradient(650px circle at 0% 0%,
+          hsl(218, 41%, 35%) 15%,
+          hsl(218, 41%, 30%) 35%,
+          hsl(218, 41%, 20%) 75%,
+          hsl(218, 41%, 19%) 80%,
+          transparent 100%),
+        radial-gradient(1250px circle at 100% 100%,
+          hsl(218, 41%, 45%) 15%,
+          hsl(218, 41%, 30%) 35%,
+          hsl(218, 41%, 20%) 75%,
+          hsl(218, 41%, 19%) 80%,
+          transparent 100%);
+    }
+
+    #radius-shape-1 {
+      height: 220px;
+      width: 220px;
+      top: -60px;
+      left: -130px;
+      background: radial-gradient(#44006b, #ad1fff);
+      overflow: hidden;
+    }
+
+    #radius-shape-2 {
+      border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+      bottom: -60px;
+      right: -110px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(#44006b, #ad1fff);
+      overflow: hidden;
+    }
+
+    .bg-glass {
+      background-color: hsla(0, 0%, 100%, 0.9) !important;
+      backdrop-filter: saturate(200%) blur(25px);
+    }
+  </style>
+
+  <div class="container px- py-5 px-md-5 text-center text-lg-start my-5">
+    <div class="row gx-lg-5 align-items-center mb-5">
+      <!--  <div class="col-lg-4 mb-5 mb-lg-0" style="z-index: 10">
+          <h1 class="my-2 display-3 fw-bold " style="color: hsl(218, 81%, 95%)">
+            Welcome To <br />
+            <span style="color: hsl(218, 81%, 75%)">CG Express</span>
+          </h1>
+         
+        </div> -->
+
+      <div class="px-2 border-radius: 20% position-relative">
+        <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+        <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+        <div class="card bg-glass" style="margin-left: 400px; margin-right: 400px; padding-left: 40px; padding-right: 40px;">
+          <div class="card-body px-md-4">
+            <form [formGroup]="LoginRail" (ngSubmit)="LoginSubmitted()">
+              <div>
+
+
+
+                <h3 class="text-center fw-bold">Login</h3>
+
+                <br>
+                <div class="form-outline">
+                  <input type="text" formControlName="email"
+                    [class.is-invalid]="f['email'].invalid && f['email'].touched"
+                    class="form-control form-control-lg" />
+                  <label class="form-label" for="email">Email</label>
+                </div>
+
+
+                <div class="form-text text-danger" *ngIf="f['email'].invalid && f['email'].touched">
+                  <div
+                    *ngIf="f['email'].errors && f['email'].errors['required'] && (f['email'].dirty || f['email'].touched)">
+                    Email Is Required
+                  </div>
+                  <div *ngIf="f['email'].errors && f['email'].errors['pattern']">
+                    Invalid Email
+                  </div>
+
+                </div>
+                <br>
+
+
+
+                <div class="form-outline">
+                  <input type="password" formControlName="password"
+                    [class.is-invalid]="f['password'].invalid && f['password'].touched"
+                    class="form-control form-control-lg" />
+                  <label class="form-label" for="password">Password</label>
+                </div>
+
+                <div class="form-text text-danger" *ngIf="f['password'].invalid && f['password'].touched">
+                  <div *ngIf="f['password'].errors && f['password'].errors['required']">
+                    Password Is Required
+                  </div>
+                  <div *ngIf="f['password'].errors && f['password'].errors['pattern']">
+                    Invalid Password
+                  </div>
+                </div>
+
+
+
+
+
+
+              </div>
+              <br>
+              <br>
+
+              <div class="col-lg-8" style="margin-left: 60px;">
+                <div class="d-grid">
+                  <input type="submit" value="Login" [class.disabled]="LoginRail.invalid" class="btn btn-primary">
+                </div>
+              </div>
+              <br>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+
+                  <div class="form-outline">
+                    <h6 class="fw-bold">Don't have account?</h6>
+                   
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-4">
+
+                  <div class="form-outline fw-bold">
+                    <a routerLink="/registration">Register</a>
+
+                  </div>
+
+                </div>
+              </div>
+            <!--<div class="row">
+                <div class="col-md-6 mb-4">
+
+                  <p class="fw-bold">Don't have account?  <a routerLink="/registration">Register</a>
+                  </p>
+
+
+                </div>
+
+              </div> -->
+
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
